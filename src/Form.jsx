@@ -103,7 +103,7 @@ const Form = ({
       </div>
       <button type="submit">
         {/* Jeśli mieliśmy podane id to na przycisku wyświetli się edytuj */}
-        {id ? 'Edycja oceny' : 'Dodano ocene'}
+        {id ? 'Edycja oceny' : 'Dodaj'}
       </button>
     </form>
   );
