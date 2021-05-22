@@ -19,8 +19,8 @@ function App() {
     <Provider store={store} >
       <div className="App">
         <div className="ui">
-          <h1>Czytelnia Fantasy</h1>
-          <p>Literatura fantasy mistrza gry.</p>
+          <h1>Twoja biblioteka</h1>
+          <p>Dodaj swoje ulubione tytuły, oceń je, napisz komentarz i krótki opis, ułatwi Ci to polecenie twoich ulubionych pozycji!</p>
           <Form />
           <List />
         </div>

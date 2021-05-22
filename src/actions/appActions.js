@@ -4,9 +4,10 @@ export const EDIT = 'EDIT';
 
 // Zamienić nazwy akcji bo nie mogą być potem takie same w innym np ADD_USER
 
-export const addRate = ({author, comment, rate}) => ({
+export const addRate = ({author, comment, rate, title}) => ({
   type: ADD,
   payload: {
+     title,
      author,
      comment,
      id: Math.floor(Math.random() * 1024),
@@ -23,13 +24,14 @@ export const deleteRate = ({id}) => ({
   }
 })
 
-export const editRate = ({ author, comment, id, rate, }) => ({
+export const editRate = ({ author, comment, id, rate, title }) => ({
   type: EDIT,
   payload: {
-    id,
     author,
     comment,
+    id,
     rate,
+    title,
   }
 })
 

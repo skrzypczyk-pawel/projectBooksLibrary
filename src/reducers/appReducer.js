@@ -15,14 +15,14 @@ export const appReducer = ( state=[], action ) => {
           return currentStateElement
         }
 
-        const { author, comment, rate } = action.payload;
+        const { author, comment, rate, title } = action.payload;
 
         return ({
           author,
           comment,
-          rate,
           id: currentStateElement.id,
-
+          rate,
+          title,
         });
       });
 
