@@ -7,6 +7,12 @@ li.element {
   list-style: none;
 }
 
+@media (orientation: portrait) {
+  li.element {
+    width: 100vw;
+  }
+}
+
 li.element button {
   margin: 10px 10px;
   line-height: 25px;

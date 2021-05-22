@@ -7,6 +7,12 @@
   background-image: url(../images/bgc1.jpg);
 }
 
+@media (orientation: portrait) {
+  .App {
+    width: 100vw;
+  }
+}
+
 .App h1 {
   margin: 0;
 }
@@ -20,6 +26,12 @@ input {
   margin: 0 auto;
   min-height: 100vh;
   width: 60%;
+}
+
+@media (orientation: portrait) {
+  .ui {
+    width: 90%;
+  }
 }
 
 button {
