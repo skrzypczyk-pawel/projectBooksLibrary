@@ -1,9 +1,9 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import Element from './Element';
+import Rete from './Rete';
 
 const List = ({rates}) => {
-  const ratesElements = rates.map(rate => <Element 
+  const ratesElements = rates.map(rate => <Rete 
     key={rate.id} 
     {...rate}
   />)

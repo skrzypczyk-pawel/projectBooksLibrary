@@ -1,11 +1,9 @@
-export const ADD = 'ADD';
-export const DELETE = 'DELETE';
-export const EDIT = 'EDIT';
-
-// Zamienić nazwy akcji bo nie mogą być potem takie same w innym np ADD_USER
+export const ADD_RATE = 'ADD_RATE';
+export const DELETE_RATE = 'DELETE_RATE';
+export const EDIT_RATE = 'EDIT_RATE';
 
 export const addRate = ({author, comment, rate, title}) => ({
-  type: ADD,
+  type: ADD_RATE,
   payload: {
      title,
      author,
@@ -15,17 +13,15 @@ export const addRate = ({author, comment, rate, title}) => ({
   }
 })
 
-
-//Stwórz funkcje zwracającą akcje która odejmuje i akcje która umożliwia edycje komentarza.
 export const deleteRate = ({id}) => ({
-  type: DELETE,
+  type: DELETE_RATE,
   payload: {
     id,
   }
 })
 
 export const editRate = ({ author, comment, id, rate, title }) => ({
-  type: EDIT,
+  type: EDIT_RATE,
   payload: {
     author,
     comment,
@@ -35,15 +31,13 @@ export const editRate = ({ author, comment, id, rate, title }) => ({
   }
 })
 
-
-// Przykłądowy rodzaj danych w Redux
+// Sample type of data in Redux
 // {
-//   //type jest obowiązkowy a payload opcjonalny
+//   "type" is obligatory, "payload" opcional
 //   type: ADD_RATE,
-//   //Ładunek
 //   payload: {
 //     author: 'Jan Kowalski',
 //     rate: 5,
-//     comment: 'Bardzo dobra książka',
+//     comment: 'very good book',
 //   }
 // }
