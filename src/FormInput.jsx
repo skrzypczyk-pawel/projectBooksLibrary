@@ -1,6 +1,5 @@
 import React from 'react';
 
-// TODO: test
 const FormInput = ( {onChange, type="text" , value, placeholder} ) => {
   return (  
   <div>
