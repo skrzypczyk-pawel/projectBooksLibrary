@@ -10,7 +10,7 @@ import './styles/Element.css';
 const Element = ({author, comment, deleteRate, id, rate, title  }) => {
   const [isVisibleForm, setIsVisibleForm] = useState(false);
 
-  const toggleElements = () => setIsVisibleForm(prev => !prev); 
+  const toggleElements = () => setIsVisibleForm(!isVisibleForm); 
  
   const rateObject = { id };
   
@@ -25,12 +25,10 @@ const Element = ({author, comment, deleteRate, id, rate, title  }) => {
       title = {title}
      />
   ) : (
-    <>
     <button onClick={toggleElements}>Edytuj</button>
-    </> 
   )
 
-  const handleDelete = () => { deleteRate(rateObject) };
+  const handleDelete = () => deleteRate(rateObject);
   
   const handleRateColor = (rate) => {
     if(rate === 1) {
@@ -44,11 +42,7 @@ const Element = ({author, comment, deleteRate, id, rate, title  }) => {
     } else {
       return "green";
     }
-    
   }
-  console.log(rate);
-  console.log(handleRateColor());
-
 
   return (
     <li className="element">
@@ -57,7 +51,7 @@ const Element = ({author, comment, deleteRate, id, rate, title  }) => {
       <p>Komentarz: {comment}.</p>
       <div 
       className="rate"
-      style={{color: `${handleRateColor()}`}}
+      style={{color: handleRateColor()}}
       ><p>{rate}/5</p></div>
       {formOrButtonElement}
       <button onClick={handleDelete}>Usuń</button>  

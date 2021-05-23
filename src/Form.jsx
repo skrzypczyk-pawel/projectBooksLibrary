@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { connect } from 'react-redux';
 import { addRate, editRate } from './actions/appActions';
+import FormInput from './FormInput';
 
 const Form = ({
   addRate,
@@ -12,17 +13,25 @@ const Form = ({
   rate = '',
   title = '',
 }) => {
-
   const [titleInput, setTitleInput] = useState(title);
   const [authorInput, setAuthorInput] = useState(author);
   const [rateInput, setRateInput] = useState(rate);
   const [commentInput, setCommentInput] = useState(comment);
 
-  const handleChangeTitle = event => setTitleInput(event.target.value);
-  const handleChangeAuthor = event => setAuthorInput(event.target.value);
-  const handleChangeRate = event => setRateInput(event.target.value);
-  const handleChangeComment = event => setCommentInput(event.target.value);
-  
+  const handleChange = ( event, type ) => {
+    switch (type) {
+      case "title":
+       return setTitleInput(event.target.value);
+      case "author":
+       return setAuthorInput(event.target.value);
+      case "rate":
+       return setRateInput(event.target.value);
+      case "comment":
+       return setCommentInput(event.target.value);
+      default: return;
+    }
+  }
+
   const handleClearInputs = () => {
     setTitleInput('');
     setAuthorInput('');
@@ -33,11 +42,7 @@ const Form = ({
   const handleOnSubmit = event => {
     event.preventDefault();
 
-    if (!authorInput.length) {
-      return;
-    }
-
-    if (!titleInput.length) {
+    if (!authorInput.length || !titleInput.length) {
       return;
     }
 
@@ -52,55 +57,33 @@ const Form = ({
 
     id ? editRate(rateObject) : addRate(rateObject);
 
-    if (id) {
-      callback() 
-    }
+    !!id && callback();
 
     handleClearInputs();
   }
 
   return (
     <form onSubmit={handleOnSubmit}>
-      <div>
-      <label>
-          <input
-            onChange={handleChangeTitle}
-            type="text"
-            value={titleInput}
-            placeholder="Podaj Tytuł"
-          />
-        </label>
-      </div>
-       <div>
-        <label>
-          <input
-            onChange={handleChangeAuthor}
-            type="text"
-            value={authorInput}
-            placeholder="Podaj autora"
-          />
-        </label>
-      </div>
-      <div>
-        <label>
-          <input
-            onChange={handleChangeRate}
-            type="text"
-            value={rateInput}
-            placeholder="Podaj ocene od 1 do 5"
-          />
-        </label>
-      </div>
-      <div>
-        <label>
-          <input
-            onChange={handleChangeComment}
-            type="text"
-            value={commentInput}
-            placeholder="Wpisz komentarz"
-          />
-        </label>
-      </div>
+      <FormInput 
+      onChange={(e) => handleChange(e, "title")}
+      value={titleInput}
+      placeholder="Wpisz tytuł" 
+      />
+      <FormInput 
+      onChange={(e) => handleChange(e, "author")}
+      value={authorInput}
+      placeholder="Podaj Autora" 
+      />
+      <FormInput 
+      onChange={(e) => handleChange(e, "rate")}
+      value={rateInput}
+      placeholder="Wpisz ocene" 
+      />
+      <FormInput 
+      onChange={(e) => handleChange(e, "comment")}
+      value={commentInput}
+      placeholder="Wpisz komentarz" 
+      />
       <button type="submit">
         {/* Jeśli mieliśmy podane id to na przycisku wyświetli się edytuj */}
         {id ? 'Edycja oceny' : 'Dodaj'}
