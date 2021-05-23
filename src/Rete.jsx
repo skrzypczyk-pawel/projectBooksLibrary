@@ -3,11 +3,11 @@ import { connect } from 'react-redux';
 
 import Form from './Form';
 
-import { deleteRate } from './actions/appActions';
+import { deleteRate } from './actions/bookActions';
 
 import './styles/Element.css';
 
-const Element = ({author, comment, deleteRate, id, rate, title  }) => {
+const Rete = ({author, comment, deleteRate, id, rate, title  }) => {
   const [isVisibleForm, setIsVisibleForm] = useState(false);
 
   const toggleElements = () => setIsVisibleForm(!isVisibleForm); 
@@ -61,6 +61,6 @@ const Element = ({author, comment, deleteRate, id, rate, title  }) => {
 
 const connectActionsToProps = ({ deleteRate });
 
-const ElementConsumer = connect(null, connectActionsToProps)(Element);
+const ReteConsumer = connect(null, connectActionsToProps)(Rete);
 
-export default ElementConsumer;
+export default ReteConsumer;

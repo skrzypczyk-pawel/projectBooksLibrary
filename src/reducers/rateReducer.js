@@ -1,15 +1,15 @@
 import {
-  ADD, EDIT, DELETE,
-} from '../actions/appActions';
+  ADD_RATE, EDIT_RATE, DELETE_RATE,
+} from '../actions/bookActions';
 
-export const appReducer = ( state=[], action ) => {
+export const rateReducer = ( state=[], action ) => {
 
   switch (action.type) {
     
-    case ADD:
+    case ADD_RATE:
       return [ ...state, action.payload];
 
-    case EDIT:
+    case EDIT_RATE:
       return state.map( currentStateElement => {
         if (currentStateElement.id !== action.payload.id) {
           return currentStateElement
@@ -26,11 +26,11 @@ export const appReducer = ( state=[], action ) => {
         });
       });
 
-    case DELETE:
+    case DELETE_RATE:
       return state.filter(currentStateElement => currentStateElement.id !== action.payload.id);
 
     default:
-      console.warn(`Nie mamy akcji typu: ${action.type}`);
+      console.warn(`We don't have this action: ${action.type}`);
       return state;
   };
 };

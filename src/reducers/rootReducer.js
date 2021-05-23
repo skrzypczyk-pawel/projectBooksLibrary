@@ -1,7 +1,9 @@
 import { combineReducers } from 'redux';
 
-import { appReducer } from './appReducer.js';
+import { rateReducer } from './rateReducer.js';
+import { userReducer } from './userReducer.js';
 
 export const rootReducer = combineReducers({
-  rates: appReducer,
+  rates: rateReducer,
+  users: userReducer,
 });

@@ -1,10 +1,11 @@
 import React from 'react';
 import { Provider } from 'react-redux';
 
-import Form from './Form'
-import List from './List'
+import MainNav from './MainNav';
+import Form from './Form';
+import List from './List';
 
-import store from './store/store'
+import store from './store/store';
 
 import './styles/App.css';
 
@@ -17,6 +18,7 @@ function App() {
     <Provider store={store} >
       <div className="App">
         <div className="ui">
+          <MainNav />
           <h1>Twoja biblioteka</h1>
           <p>Dodaj swoje ulubione tytuły, oceń je, napisz komentarz i krótki opis, ułatwi Ci to polecenie twoich ulubionych pozycji!</p>
           <Form />
