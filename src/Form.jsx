@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { connect } from 'react-redux';
-import { addRate, editRate } from './actions/appActions';
+import { addRate, editRate } from './actions/bookActions';
 import FormInput from './FormInput';
 
 const Form = ({

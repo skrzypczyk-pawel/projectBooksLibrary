@@ -1,0 +1,36 @@
+nav.mNav {
+  position: fixed;
+  top: 10px;
+  right: 10vh;
+  height: 10vh;
+  width: 10vh;
+  border-radius: 10vh;
+}
+
+button.menu {
+  width:8vh;
+  height:8vh;
+  border: none;
+  background-position: center;
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-image: url(../images/menuIcon.png);
+  background-color: rgba(255,255,255,0.0);
+  transition: 1.5s;
+  z-index: 2;
+}
+
+.menu:hover {
+  transform: rotate(90deg);
+}
+
+div.showMenu {
+  position: fixed;
+  top: 0;
+  left: 0;
+  transform: translate(0, 0);
+  height: 30px;
+  width: 100%;
+  background-color:burlywood;
+  z-index: 1;
+}
