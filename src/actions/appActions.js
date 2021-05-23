@@ -35,7 +35,6 @@ export const editRate = ({ author, comment, id, rate, title }) => ({
   }
 })
 
-
 // Przykłądowy rodzaj danych w Redux
 // {
 //   //type jest obowiązkowy a payload opcjonalny
