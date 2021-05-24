@@ -30,3 +30,14 @@ export const editRate = ({ author, comment, id, rate, title }) => ({
     title,
   }
 })
+// Sample type of data in Redux
+// {
+//   "type" is obligatory, "payload" opcional
+//   type: ADD_RATE,
+//   payload: {
+//     author: 'Jan Kowalski',
+//     rate: 5,
+//     comment: 'very good book',
+//   }
+// }
+

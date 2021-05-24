@@ -57,6 +57,7 @@ const Form = ({
 
     id ? editRate(rateObject) : addRate(rateObject);
 
+    //Change to bollen
     !!id && callback();
 
     handleClearInputs();
@@ -85,7 +86,6 @@ const Form = ({
       placeholder="Wpisz komentarz" 
       />
       <button type="submit">
-        {/* Jeśli mieliśmy podane id to na przycisku wyświetli się edytuj */}
         {id ? 'Edycja oceny' : 'Dodaj'}
       </button>
     </form>

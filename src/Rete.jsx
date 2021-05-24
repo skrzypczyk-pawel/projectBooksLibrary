@@ -7,7 +7,15 @@ import { deleteRate } from './actions/bookActions';
 
 import './styles/Element.css';
 
-const Rete = ({author, comment, deleteRate, id, rate, title  }) => {
+
+const Rete = ({
+  author, 
+  comment, 
+  deleteRate, 
+  id, 
+  rate, 
+  title  
+}) => {
   const [isVisibleForm, setIsVisibleForm] = useState(false);
 
   const toggleElements = () => setIsVisibleForm(!isVisibleForm); 
