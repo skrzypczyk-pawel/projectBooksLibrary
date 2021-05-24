@@ -12,7 +12,7 @@ const FormInput = ( {onChange, type="text" , value, placeholder} ) => {
         />
       </label>
     </div> 
-  )
-}
+  );
+};
  
 export default FormInput;

@@ -1,5 +1,7 @@
 import React, { useState } from 'react';
 
+import Menu from './Menu.jsx'
+
 import './styles/MainNav.css'
 
 const MainNav = () => {
@@ -15,7 +17,7 @@ const MainNav = () => {
     if(isVisibleMenu) {
       return (
         <div className="showMenu">
-          MENU
+          <Menu />
         </div>
       )
     }
@@ -25,8 +27,8 @@ const MainNav = () => {
 
   return ( 
     <nav className="mNav">
-      <button 
-      className="menu"
+     <button 
+      className={ [isVisibleMenu ? "closeNav" : "openNav", "burger"].join(" ") }
       onClick={handleClick}
       />
       {showMenu()}
