@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
-
 import { deleteUser } from './actions/userActions';
 
 const User = ({
@@ -13,7 +12,7 @@ const User = ({
   const [checkPasswordInput, setCheckPasswordInput] = useState(checkPass);
 
   const dispatch = useDispatch();
-
+  
   const handleCheckPasswordChange = event =>
     setCheckPasswordInput(event.target.value);
 
