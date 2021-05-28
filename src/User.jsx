@@ -1,10 +1,8 @@
 import React, { useState } from 'react';
-import { connect } from 'react-redux';
-
+import { useDispatch } from 'react-redux';
 import { deleteUser } from './actions/userActions';
 
 const User = ({
-  deleteUser,
   id,
   name,
   password,
@@ -13,12 +11,14 @@ const User = ({
 
   const [checkPasswordInput, setCheckPasswordInput] = useState(checkPass);
 
+  const dispatch = useDispatch();
+  
   const handleCheckPasswordChange = event =>
     setCheckPasswordInput(event.target.value);
 
   const rateObject = { id };
 
-  const handleDelete = () => deleteUser(rateObject);
+  const handleDelete = () => dispatch(deleteUser(rateObject));
 
   // const showBtnLog = () => {
   //   if(password === {checkPasswordInput}) {
@@ -49,9 +49,5 @@ const User = ({
     </div>
    );
 }
- 
-const connectActionsToProps = ({ deleteUser });
 
-const UserConsumer = connect(null, connectActionsToProps)(User);
-
-export default UserConsumer;
+export default User;

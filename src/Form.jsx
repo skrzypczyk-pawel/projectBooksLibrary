@@ -1,14 +1,12 @@
 import React, { useState } from 'react';
-import { connect } from 'react-redux';
+import { useDispatch } from 'react-redux';
 import { addRate, editRate } from './actions/bookActions';
 import FormInput from './FormInput';
 
 const Form = ({
-  addRate,
   author = '',
   callback,
   comment = '',
-  editRate,
   id,
   rate = '',
   title = '',
@@ -17,6 +15,8 @@ const Form = ({
   const [authorInput, setAuthorInput] = useState(author);
   const [rateInput, setRateInput] = useState(rate);
   const [commentInput, setCommentInput] = useState(comment);
+
+  const dispatch = useDispatch();
 
   const handleChange = ( event, type ) => {
     switch (type) {
@@ -55,7 +55,9 @@ const Form = ({
       title: titleInput,
     };
 
-    id ? editRate(rateObject) : addRate(rateObject);
+    id 
+      ? dispatch(editRate(rateObject))
+      : dispatch(addRate(rateObject));
 
     //Change to bollen
     !!id && callback();
@@ -92,11 +94,6 @@ const Form = ({
   );
 };
 
-const connectActionsToProps = ({
-  addRate,
-  editRate,
-})
 
-const FormConsumer = connect(null, connectActionsToProps)(Form);
 
-export default FormConsumer;
+export default Form;
