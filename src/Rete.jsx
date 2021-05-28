@@ -7,7 +7,6 @@ import { deleteRate } from './actions/bookActions';
 
 import './styles/Element.css';
 
-
 const Rete = ({
   author, 
   comment, 
