@@ -42,7 +42,7 @@ const Form = ({
   const handleOnSubmit = event => {
     event.preventDefault();
 
-    if (!authorInput.length || !titleInput.length) {
+    if (!titleInput.length) {
       return;
     }
 
