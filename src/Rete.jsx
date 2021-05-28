@@ -1,10 +1,7 @@
 import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
-
 import Form from './Form';
-
 import { deleteRate } from './actions/bookActions';
-
 import './styles/Element.css';
 
 const Rete = ({
@@ -66,6 +63,5 @@ const Rete = ({
     </li>
   );
 };
-
 
 export default Rete;
