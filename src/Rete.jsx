@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { connect } from 'react-redux';
+import { useDispatch } from 'react-redux';
 
 import Form from './Form';
 
@@ -9,13 +9,14 @@ import './styles/Element.css';
 
 const Rete = ({
   author, 
-  comment, 
-  deleteRate, 
+  comment,
   id, 
   rate, 
   title  
 }) => {
   const [isVisibleForm, setIsVisibleForm] = useState(false);
+
+  const dispatch = useDispatch();
 
   const toggleElements = () => setIsVisibleForm(!isVisibleForm); 
  
@@ -35,7 +36,7 @@ const Rete = ({
     <button onClick={toggleElements}>Edytuj</button>
   )
 
-  const handleDelete = () => deleteRate(rateObject);
+  const handleDelete = () => dispatch(deleteRate(rateObject));
   
   const handleRateColor = (rate) => {
     if(rate === 1) {
@@ -66,8 +67,5 @@ const Rete = ({
   );
 };
 
-const connectActionsToProps = ({ deleteRate });
 
-const ReteConsumer = connect(null, connectActionsToProps)(Rete);
-
-export default ReteConsumer;
+export default Rete;
